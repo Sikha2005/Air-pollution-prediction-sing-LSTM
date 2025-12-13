@@ -65,6 +65,7 @@ PM25 Actual vs Predicted 2Weeks saved as PM25_Actual_vs_Predicted_2Weeks_1500poi
 # PROCEDURE
 # 1. Data Loading
 -The air-quality dataset is loaded from a CSV file.
+
 -Only the PM2.5 column is selected as the target variable for prediction.
 
 # 2. Data Preprocessing
