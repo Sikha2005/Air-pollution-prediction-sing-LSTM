@@ -73,38 +73,51 @@ PM25 Actual vs Predicted 2Weeks saved as PM25_Actual_vs_Predicted_2Weeks_1500poi
 
 # 3. Data Scaling
  -Min-Max normalization is applied to scale PM2.5 values into the range [0, 1].
+ 
  -This improves training stability and convergence of the LSTM model.
 
 # 4. Sequence Generation (Sliding Window)
  -A sliding window of 37 time steps is used.
+ 
  -Each input sequence contains 37 past PM2.5 values,and the model learns to predict the next PM2.5 value.
 
 # 5. Train–Test Split
  -The dataset is split into 80% training data and 20% testing data.
+ 
  -Temporal order is preserved (no random shuffling).
 
 # 6. Model Architecture
  A lightweight LSTM network is used:
  - LSTM layer with 9 units to capture temporal dependencies
+ 
  - Dropout layer (0.2) to reduce overfitting
+ 
  - Dense output layer for PM2.5 prediction
 
 # 7. Model Training
  The model is trained using:
  - Adam optimizer with a low learning rate (1e-5)
+ 
  - Mean Squared Error (MSE) loss function
+ 
  Training epochs are kept low for CPU-friendly execution.
 
 # 8. Prediction
 -The trained model generates predictions on the test dataset.
+
 -Predicted values are inverse-transformed back to original PM2.5 scale.
 
 # 9. Visualization
  Actual vs Predicted PM2.5 values are plotted for:
+ 
  - 1 hour forecast
+ 
  - 24 hour forecast
+ 
  - 1 week forecast
+ 
  - 2 week forecast
+ 
 # For long-term forecasts, moving average smoothing is applied
 # to the actual data to enable fair comparison with LSTM predictions.
 
